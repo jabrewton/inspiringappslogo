@@ -4,12 +4,13 @@
     <title>InspiringApps Logo Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=.75, maximum-scale=1.0, user-scalable=0"> 
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body> 
     <div class="container">
         <header>
             <h1>THE INSPIRINGAPPS LOGO</h1>
-            <h2>From here you will witness dot moving like never before!<br/> Complete the InspiringApps logo
+            <h2 id="confirm">From here you will witness dot moving like never before!<br/> Complete the InspiringApps logo
                 by putting the dots in their correct place!
             </h2>
         </header>
@@ -40,6 +41,7 @@
                 <div id="redLanding" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                 <div id="black2Landing" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </div>
+            <button id="returnButton" onClick='returnDots()'>Reset</button>
         </div>
         
     </div>
