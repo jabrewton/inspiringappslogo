@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    position: fixed;
+    //position: fixed;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -17,7 +17,8 @@ body {
         }
         h2 {
             margin-block-end: .2em;
-            margin-block-start: .9em;
+            margin-block-start: .2em;
+            //height: 70px;
         }
     }
 
@@ -94,3 +95,5 @@ body {
         }
     }
 }
+
+@import "mobile.scss";
