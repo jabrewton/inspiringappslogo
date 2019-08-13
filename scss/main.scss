@@ -1,0 +1,77 @@
+body {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+
+    header {
+        h1 {
+            font-size: 3.5rem;
+        }
+    }
+
+    .canvas {
+        display: inline-block;
+
+        .dots {
+            padding-inline-start: 0px;
+            display: flex;
+            justify-content: space-between;
+
+            li {
+                display: inline-block;
+                list-style: none;
+                height: 86px;
+                width: 86px;
+            }
+        }
+        .landing-zone {
+            background-image: url("../../assets/ia-logo-back.png");
+            width: 600px;
+            height: 600px;
+
+            div {
+                position: relative;
+            }
+
+            #black1Landing {
+                height: 86px;
+                width: 86px;
+                top: 191px;
+                left: 47px;
+            }
+
+            #greenLanding {
+                height: 86px;
+                width: 86px;
+                top: 248px;
+                left: 143px;
+            }
+
+            #blueLanding {
+                height: 86px;
+                width: 86px;
+                top: -125px;
+                left: 274px;
+            }
+
+            #redLanding {
+                height: 86px;
+                width: 86px;
+                top: -188px;
+                left: 455px;
+            }
+
+            #black2Landing {
+                height: 86px;
+                width: 86px;
+                top: -57px;
+                left: 418px;
+            }
+        }
+    }
+}

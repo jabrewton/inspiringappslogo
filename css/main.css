@@ -1,0 +1,67 @@
+body {
+  position: fixed;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.container {
+  text-align: center;
+}
+.container header h1 {
+  font-size: 3.5rem;
+}
+.container .canvas {
+  display: inline-block;
+}
+.container .canvas .dots {
+  padding-inline-start: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .canvas .dots li {
+  display: inline-block;
+  list-style: none;
+  height: 86px;
+  width: 86px;
+}
+.container .canvas .landing-zone {
+  background-image: url("../../assets/ia-logo-back.png");
+  width: 600px;
+  height: 600px;
+}
+.container .canvas .landing-zone div {
+  position: relative;
+}
+.container .canvas .landing-zone #black1Landing {
+  height: 86px;
+  width: 86px;
+  top: 191px;
+  left: 47px;
+}
+.container .canvas .landing-zone #greenLanding {
+  height: 86px;
+  width: 86px;
+  top: 248px;
+  left: 143px;
+}
+.container .canvas .landing-zone #blueLanding {
+  height: 86px;
+  width: 86px;
+  top: -125px;
+  left: 274px;
+}
+.container .canvas .landing-zone #redLanding {
+  height: 86px;
+  width: 86px;
+  top: -188px;
+  left: 455px;
+}
+.container .canvas .landing-zone #black2Landing {
+  height: 86px;
+  width: 86px;
+  top: -57px;
+  left: 418px;
+}
+
+/*# sourceMappingURL=main.css.map */
