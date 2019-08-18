@@ -1,13 +1,6 @@
 @media only screen and (max-width: 950px) {
     .container {
         margin: 0 10px;
-
-        .canvas {
-            .dots {
-                margin-block-start: 5px;
-                margin-block-end: 10px;
-            }
-        }
     }
 }
 
@@ -36,14 +29,21 @@
                 height: 140px;
             }
         }
-        .canvas {
-            .dots {
-                
-                img {
-                    width: 60px;
-                    height: 60px;
+        .gameBoard {
+            div {   
+                .dots {
+                    li {
+                        width: 60px;
+                        height: 60px;
+
+                        img {
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
                 }
             }
+            
             .landing-zone {
                 background-size: contain;
                 width: 430px;
@@ -61,27 +61,27 @@
                 }
 
                 #black1Landing {
-                    top: 137px;
+                    top: 229px;
                     left: 34px;
                 }
 
                 #black2Landing {
-                    top: -34px;
+                    top: 298px;
                     left: 301px;
                 }
 
                 #blueLanding {
-                    top: -87px;
+                    top: 126px;
                     left: 198px;
                 }
 
                 #greenLanding {
-                    top: 180px;
-                    left: 102px;
+                    top: 333px;
+                    left: 103px;
                 }
 
                 #redLanding {
-                    top: -129px;
+                    top: 143px;
                     left: 327px;
                 }
             }

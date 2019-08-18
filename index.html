@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>InspiringApps Logo Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=.75, maximum-scale=1.0, user-scalable=0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=.75, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
@@ -14,36 +14,35 @@
                 by putting the dots in their correct place!
             </h2>
         </header>
-        <div class="canvas">
+        <div id="container" class="gameBoard">
             <div>
-                <ul class="dots">
+                <ul id="dotList" class="dots">
                     <li id="li1">
-                        <img id="blueDot" ondragstart="drag(event)" src="assets/ia-logo-dot-blue.png" draggable="true">
+                        <img id="blueDot" src="assets/ia-logo-dot-blue.png" draggable="false">
                     </li>
                     <li id="li2">
-                        <img id="redDot" ondragstart="drag(event)" src="assets/ia-logo-dot-red.png" draggable="true">
+                        <img id="redDot" src="assets/ia-logo-dot-red.png" draggable="false">
                     </li>
                     <li id="li3">
-                        <img id="greenDot" ondragstart="drag(event)" src="assets/ia-logo-dot-green.png" draggable="true">
+                        <img id="greenDot" src="assets/ia-logo-dot-green.png" draggable="false">
                     </li>
                     <li id="li4">
-                        <img id="blackDot1" ondragstart="drag(event)" src="assets/ia-logo-dot-black.png" draggable="true">
+                        <img id="blackDot1" src="assets/ia-logo-dot-black.png" draggable="false">
                     </li>
                     <li id="li5">
-                        <img id="blackDot2" ondragstart="drag(event)" src="assets/ia-logo-dot-black.png" draggable="true">
+                        <img id="blackDot2" src="assets/ia-logo-dot-black.png" draggable="false">
                     </li>
                 </ul>
             </div>
             <div id="bgContainer" class="landing-zone">
-                <div id="black1Landing" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="greenLanding" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="blueLanding" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="redLanding" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="black2Landing" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="black1Landing"></div>
+                <div id="greenLanding"></div>
+                <div id="blueLanding"></div>
+                <div id="redLanding"></div>
+                <div id="black2Landing"></div>
             </div>
-            <button id="returnButton" onclick="returnDots()">Reset</button>
+            <button id="returnButton">Reset</button>
         </div>
-        
     </div>
     <script src="/js/index.js"></script>
   </body>

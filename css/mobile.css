@@ -2,10 +2,6 @@
   .container {
     margin: 0 10px;
   }
-  .container .canvas .dots {
-    margin-block-start: 5px;
-    margin-block-end: 10px;
-  }
 }
 @media only screen and (max-width: 710px) {
   .container header h1 {
@@ -24,42 +20,46 @@
     margin-block-end: 0.2rem;
     height: 140px;
   }
-  .container .canvas .dots img {
+  .container .gameBoard div .dots li {
     width: 60px;
     height: 60px;
   }
-  .container .canvas .landing-zone {
+  .container .gameBoard div .dots li img {
+    width: 60px;
+    height: 60px;
+  }
+  .container .gameBoard .landing-zone {
     background-size: contain;
     width: 430px;
     height: 430px;
     background-repeat: no-repeat;
   }
-  .container .canvas .landing-zone img {
+  .container .gameBoard .landing-zone img {
     width: 60px;
     height: 60px;
   }
-  .container .canvas .landing-zone #black1Landing, .container .canvas .landing-zone #greenLanding, .container .canvas .landing-zone #redLanding, .container .canvas .landing-zone #blueLanding, .container .canvas .landing-zone #black2Landing {
+  .container .gameBoard .landing-zone #black1Landing, .container .gameBoard .landing-zone #greenLanding, .container .gameBoard .landing-zone #redLanding, .container .gameBoard .landing-zone #blueLanding, .container .gameBoard .landing-zone #black2Landing {
     width: 60px;
     height: 60px;
   }
-  .container .canvas .landing-zone #black1Landing {
-    top: 137px;
+  .container .gameBoard .landing-zone #black1Landing {
+    top: 229px;
     left: 34px;
   }
-  .container .canvas .landing-zone #black2Landing {
-    top: -34px;
+  .container .gameBoard .landing-zone #black2Landing {
+    top: 298px;
     left: 301px;
   }
-  .container .canvas .landing-zone #blueLanding {
-    top: -87px;
+  .container .gameBoard .landing-zone #blueLanding {
+    top: 126px;
     left: 198px;
   }
-  .container .canvas .landing-zone #greenLanding {
-    top: 180px;
-    left: 102px;
+  .container .gameBoard .landing-zone #greenLanding {
+    top: 333px;
+    left: 103px;
   }
-  .container .canvas .landing-zone #redLanding {
-    top: -129px;
+  .container .gameBoard .landing-zone #redLanding {
+    top: 143px;
     left: 327px;
   }
 }

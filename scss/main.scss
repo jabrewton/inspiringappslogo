@@ -1,6 +1,22 @@
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(3, 3, 1, 0.4);
+        box-shadow: 0 0 0 0 rgba(3, 3, 1, 0.4);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 20px rgba(32, 32, 32, 0);
+        box-shadow: 0 0 0 20px rgba(15, 15, 15, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+};
+
+
 body {
     font-family: 'Poppins', sans-serif;
-    //position: fixed;
+    position: fixed;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -12,72 +28,75 @@ body {
     header {
         h1 {
             font-size: 3.5rem;
-            margin-block-end: .2em;
-            margin-block-start: .2em;
+            margin-block-end: 0;
+            margin-block-start: 0;
         }
         h2 {
-            margin-block-end: .2em;
-            margin-block-start: .2em;
+            margin-block-end: 0;
+            margin-block-start: 0;
+            height: 120px; 
         }
     }
 
-    .canvas {
+    .gameBoard {
         display: inline-block;
-
-        .dots {
-            padding-inline-start: 0px;
-            display: flex;
-            justify-content: space-between;
-
-            li {
-                display: inline-block;
-                list-style: none;
-                height: 86px;
-                width: 86px;
+        position: relative;
+        div {
+            text-align: initial;
+            .dots {
+                padding-inline-start: 0px;
+                display: flex;
+                justify-content: space-between;
+    
+                li {
+                    display: inline-block;
+                    list-style: none;
+                    height: 86px;
+                    width: 86px;
+    
+                    img {
+                        position: absolute;
+                        z-index: 2;
+                    }
+                }
             }
         }
+        
         .landing-zone {
             background-image: url("../../assets/ia-logo-back.png");
             width: 600px;
             height: 600px;
+            
 
             div {
-                position: relative;
+                height: 86px;
+                width: 86px;
+                position: absolute;
             }
 
             #black1Landing {
-                height: 86px;
-                width: 86px;
-                top: 191px;
+                top: 309px;
                 left: 47px;
             }
 
             #greenLanding {
-                height: 86px;
-                width: 86px;
-                top: 248px;
-                left: 143px;
+                top: 453px;
+                left: 143px;    
             }
 
             #blueLanding {
-                height: 86px;
-                width: 86px;
-                top: -125px;
-                left: 274px;
+                top: 165px;
+                left: 275px;   
             }
 
             #redLanding {
-                height: 86px;
-                width: 86px;
-                top: -188px;
-                left: 455px;
+                top: 188px;
+                left: 454px; 
             }
 
             #black2Landing {
-                height: 86px;
-                width: 86px;
-                top: -57px;
-                left: 418px;
+                top: 405px;
+                left: 420px; 
             }
         }
 
@@ -94,5 +113,24 @@ body {
         }
     }
 }
+
+//dot landing ping styling
+.ping {
+    animation: pulse 3s linear;
+    border-radius: 50px;
+}
+ 
+
+// confetti styling
+#particle-canvas {
+    display: block; 
+    position: fixed;
+    pointer-events: none; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%;
+    z-index: 10;
+  }
 
 @import "mobile.scss";
