@@ -64,5 +64,58 @@ Day6:
 -Testing
 
 Day7:
--Scrap and rewrite it
+-Scrap and rewrite it... - JK
 -Delivery at 11AM tomorrow!
+
+
+
+Real events:
+
+Day 1:
+-Create project locally
+-Get file system built
+-Get assets arranged on the page
+-Investigate unknowns
+-Further lock down assests and containers
+-Start proofs on unknowns
+-Add basic pathing or state functionality (Whichever pans out first)
+
+Day 2:
+-Push to GIT and share progress
+-Add this list to readme on git
+-Make unknowns not unknown anymore
+-If item 3 from day 2 flushed out: Start with return dot functionality
+-Finish basic functionality using HTML5 Drag&Drop functionality
+-Find out it doesn't work with touch events
+
+Day 3:
+-Explore JQuery solution
+-Load JQuery
+-Find out JQuery solution is hacky/Need 3 extra libraries (JQuery, JQueryUI, JQueryPunch-UI) to make it work...
+-Remove JQuery
+-Explore new solutions
+
+Day 4:
+-Decide to go pure JavaScript with event listeners
+-Start rework
+-Make basic structure to handle touch/click events
+
+Day 5:
+-Add positioning rules
+-Add mobile layout
+-Add mobile functionality
+
+Day 6:
+-Clean up code
+-Fix Nuances like artifacts, positioning, flags
+-Clean up landing zones for dots
+
+Day 7:
+-Add win confetti
+-Send out to test group
+-Fixed mobile issues for Android phones
+-Fixed mobile issues from feedback from test group
+
+Due Date:
+-Cleaned up commments
+-Cleaned up code formatting
