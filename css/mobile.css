@@ -10,6 +10,9 @@
   }
 }
 @media only screen and (max-width: 650px) {
+  .container header {
+    height: 300px;
+  }
   .container .gameBoard div .dots li {
     width: 60px;
     height: 60px;

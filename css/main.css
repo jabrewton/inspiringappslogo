@@ -23,6 +23,9 @@ body {
 .container {
   text-align: center;
 }
+.container header {
+  height: 200px;
+}
 .container header h1 {
   font-size: 3.5rem;
   margin-block-end: 0;
@@ -124,6 +127,9 @@ body {
   }
 }
 @media only screen and (max-width: 650px) {
+  .container header {
+    height: 300px;
+  }
   .container .gameBoard div .dots li {
     width: 60px;
     height: 60px;
