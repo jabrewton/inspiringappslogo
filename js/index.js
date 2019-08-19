@@ -20,7 +20,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 let particles = [];
 
-// particle canvas
+// Particle canvas variables
 const canvas = document.createElement( 'canvas' );
 const context = canvas.getContext( '2d' );
 canvas.id = 'particle-canvas';
@@ -28,28 +28,32 @@ canvas.width = width;
 canvas.height = height;
 document.body.appendChild( canvas );
 
-//handles removing text from info section for tiny screens
+// Handles removing text from info section for tiny screens
 if(window.innerWidth <= "500"){
     document.getElementById("confirm").innerHTML = "";
 }
 
-//Reworked for mobile touch events
+
+
+// Begining of rework section for mobile touch events
 var container = document.querySelector("#container");
 var activeItem = null;
 var active = false;
 
+// Event listeners for mobile touch events
 container.addEventListener("touchstart", dragStart, false);
 container.addEventListener("touchend", dragEnd, false);
 container.addEventListener("touchmove", drag, false);
 
+// Event listeners for browser mouse clicks
 container.addEventListener("mousedown", dragStart, false);
 container.addEventListener("mouseup", dragEnd, false);
 container.addEventListener("mousemove", drag, false);
 
-//Initial click/touch functionality
+// Initial click/touch functionality
 function dragStart(e) {
     if (e.target !== e.currentTarget) {
-        if(e.target.style.transform === "none" || e.target.id === "bgContainer" || e.target.id === "dotList" || e.target.id === blackDotStartZone1 || e.target.id === blackDotStartZone2 || e.target.id === redDotStartZone || e.target.id === greenDotStartZone || e.target.id === blueDotStartZone || e.target.id === blackDotLandingZone1.id || e.target.id === blackDotLandingZone2.id || e.target.id === blueDotLandingZone.id || e.target.id === greenDotLandingZone.id || e.target.id === redDotLandingZone.id || e.target.id === reset.id) {
+        if(e.target.style.transform === "none" || e.target.id === "bgContainer" || e.target.id === "dotList" || e.target.id === blackDotStartZone1.id || e.target.id === blackDotStartZone2.id || e.target.id === redDotStartZone.id || e.target.id === greenDotStartZone.id || e.target.id === blueDotStartZone.id || e.target.id === blackDotLandingZone1.id || e.target.id === blackDotLandingZone2.id || e.target.id === blueDotLandingZone.id || e.target.id === greenDotLandingZone.id || e.target.id === redDotLandingZone.id || e.target.id === reset.id) {
             active = false;
         }else {
             active = true;
@@ -58,14 +62,15 @@ function dragStart(e) {
             activeItem = e.target;
         
             if (activeItem !== null) {
+                // If no xOffset set or the flag has been set on reset set xOffset back to zero
                 if (!activeItem.xOffset || activeItem.className === "flag") {
                 activeItem.xOffset = 0;
                 }
-        
+                // If no yOffset set or the flag has been set on reset set yOffset back to zero
                 if (!activeItem.yOffset || activeItem.className === "flag") {
                 activeItem.yOffset = 0;
                 }
-        
+                // Set the touchstart or mousedown location
                 if (e.type === "touchstart") {
                 activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
                 activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
@@ -78,14 +83,20 @@ function dragStart(e) {
     }
 }
 
-//Drop functionality
+// Drop functionality
 function dragEnd(e) {
     if (activeItem !== null)  {
+        // If desktop, board is a larger layout
         if(window.innerWidth > "650") {
+            // Landing zones for each dot
             if((activeItem.currentX < -310 && activeItem.currentX > -360) && (activeItem.currentY < 320 && activeItem.currentY > 270) && (activeItem.id === blackDot1.id)) {
+                // Remove transform for new click check as well as to keep dot in absolute drop position
                 blackDot1.style.transform = "none";
+                // Add pulse styling to dot to show it was dropped in correct location
                 blackDot1.classList.add("ping");
+                // Add dot to landing zone
                 blackDotLandingZone1.appendChild(activeItem);
+                // Add to counter for win scenario
                 count++;
             }
             else if((activeItem.currentX < -65 && activeItem.currentX > -115) && (activeItem.currentY < 410 && activeItem.currentY > 360) && (activeItem.id === blackDot2.id)) {
@@ -113,7 +124,7 @@ function dragEnd(e) {
                 count++;
             }
         }
-
+        // Else if mobile, board is a smaller layout
         else if(window.innerWidth <= "650") {
             if((activeItem.currentX < -226 && activeItem.currentX > -256) && (activeItem.currentY < 230 && activeItem.currentY > 200) && (activeItem.id === blackDot1.id)) {
                 blackDot1.style.transform = "none";
@@ -146,9 +157,11 @@ function dragEnd(e) {
                 count++;
             }
         }
-        
+        // If win
         if(count === 5) {
+            // Update text header
             document.getElementById("confirm").innerHTML = "CONGRATULATIONS! AMAZING WORK!";
+            // Start confetti
             startAnimation();
         }
     }
@@ -156,9 +169,10 @@ function dragEnd(e) {
     activeItem = null;
 }
 
-//After click/touch movement
+// After click/touch movement
 function drag(e) {
     if (active) {
+        // Allows dragging of target
         e.preventDefault();
         if (e.type === "touchmove") {    
             activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
@@ -167,23 +181,32 @@ function drag(e) {
             activeItem.currentX = e.clientX - activeItem.initialX;
             activeItem.currentY = e.clientY - activeItem.initialY;
         }
+        // Remove flag so that if dot is dropped in arbitrary spot, and reclicked
+        // to move again, the x/yOffsets will not be reset to zero and 
+        // the dot will continue moving naturally
         activeItem.classList.remove("flag");
         activeItem.xOffset = activeItem.currentX;
         activeItem.yOffset = activeItem.currentY;
-
+        // Call to setTranslate so the dot target can be taken out of 2d context and move about
+        // in the 3d plane.
         setTranslate(activeItem.currentX, activeItem.currentY, activeItem);
     }
 }
 
-//Sets the img to translate3d so you can see the movement of the element
+// Sets the img to translate3d so you can see the movement of the element
 function setTranslate(xPos, yPos, el) {
     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 }
 
-//Reset functionality
+// Reset functionality
 returnButton.addEventListener("click", returnDots,false);
 returnButton.addEventListener("touchstart", returnDots,false);
 
+// Return dots to start zones; reset translate3d styling on dots to 
+// keep them from moving to random places on reset; add flags
+// so the dots x/yOffsets will be reset to zero; remove ping styling
+// as that is for the landing zone drop only; reset header text;
+// reset count; stop animation of confetti.
 function returnDots() {
     blackDotStartZone1.appendChild(blackDot1);
     blackDotStartZone2.appendChild(blackDot2);
@@ -214,14 +237,18 @@ function returnDots() {
     stopAnimation();
 };
 
-//END OF APP BASIC FUNCTIONALITY
+// END OF APP BASIC FUNCTIONALITY
 
 
 
 
-//START OF CONFETTI FUNCTIONALITY
+// START OF CONFETTI FUNCTIONALITY
+// This was borrowed from a codepen online
+// and modified to fit my case.
+// Confetti Drop Canvas Animation Effect -
+// A PEN BY Rainner Lins
 
-//Confetti particle class
+// Confetti particle class
 class ConfettiParticle {
 
     constructor( context, width, height ) {
@@ -276,7 +303,7 @@ class ConfettiParticle {
     }
 };
 
-// update canvas size
+// Update canvas size
 const updateSize = () => {
     width = window.innerWidth;
     height = window.innerHeight;
@@ -284,7 +311,7 @@ const updateSize = () => {
     canvas.height = height;
 };
 
-// create confetti particles 
+// Create confetti particles 
 const createParticles = () => {
     particles = []; 
     let total = 100; 
@@ -298,7 +325,7 @@ const createParticles = () => {
     }
 };
 
-// animation loop 
+// Animation loop 
 const animationFunc = () => {  
     myreq = requestAnimationFrame( animationFunc );
     const context = canvas.getContext('2d');
@@ -312,21 +339,21 @@ const animationFunc = () => {
     }   
 };
 
-// stop animation
+// Stop animation
 function stopAnimation() {
     const context = canvas.getContext('2d');
     context.clearRect(0,0,canvas.width, canvas.height);
     window.cancelAnimationFrame(myreq);
 }
 
-// start animation
+// Start animation
 function startAnimation() {
     updateSize();
     createParticles();
     animationFunc();
 }
 
-// on resize 
+// On resize 
 window.addEventListener( 'resize', e => {
     updateSize();
     createParticles();
