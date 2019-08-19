@@ -46,6 +46,7 @@ body {
   padding-inline-start: 0px;
   display: flex;
   justify-content: space-between;
+  padding-left: 0px;
 }
 .container .gameBoard div .dots li {
   display: inline-block;
@@ -128,7 +129,7 @@ body {
 }
 @media only screen and (max-width: 650px) {
   .container header {
-    height: 300px;
+    height: 310px;
   }
   .container .gameBoard div .dots li {
     width: 60px;
@@ -171,6 +172,11 @@ body {
   .container .gameBoard .landing-zone #redLanding {
     top: 143px;
     left: 327px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .container header {
+    height: 120px;
   }
 }
 

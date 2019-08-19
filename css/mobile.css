@@ -11,7 +11,7 @@
 }
 @media only screen and (max-width: 650px) {
   .container header {
-    height: 300px;
+    height: 310px;
   }
   .container .gameBoard div .dots li {
     width: 60px;
@@ -54,6 +54,11 @@
   .container .gameBoard .landing-zone #redLanding {
     top: 143px;
     left: 327px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .container header {
+    height: 120px;
   }
 }
 

@@ -28,9 +28,12 @@ canvas.width = width;
 canvas.height = height;
 document.body.appendChild( canvas );
 
+//handles removing text from info section for tiny screens
+if(window.innerWidth <= "500"){
+    document.getElementById("confirm").innerHTML = "";
+}
 
-
-//Rework for mobile touch events
+//Reworked for mobile touch events
 var container = document.querySelector("#container");
 var activeItem = null;
 var active = false;
@@ -202,7 +205,11 @@ function returnDots() {
     greenDot.classList.remove("ping");
     redDot.classList.remove("ping");
     blueDot.classList.remove("ping");
-    document.getElementById("confirm").innerHTML = "From here you will witness dot moving like never before!<br/> Complete the InspiringApps logo by putting the dots in their correct place!";
+    if(window.innerWidth > "500"){
+        document.getElementById("confirm").innerHTML = "From here you will witness dot moving like never before!<br/> Complete the InspiringApps logo by putting the dots in their correct place!<br/> Please use portrait mode only if on mobile.";
+    }else {
+        document.getElementById("confirm").innerHTML = "";
+    }
     count = 0;
     stopAnimation();
 };
@@ -329,6 +336,10 @@ window.addEventListener( 'resize', e => {
 
 
 
+
+//I don't usually leave tons of comments in my code 
+//but I wanted to show you the first way I tried to solve the 
+//assignment. See below
 
 
 //Original functionality utilizing HTML5 DnD
