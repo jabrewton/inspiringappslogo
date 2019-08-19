@@ -199,8 +199,8 @@ function setTranslate(xPos, yPos, el) {
 }
 
 // Reset functionality
-returnButton.addEventListener("click", returnDots,false);
-returnButton.addEventListener("touchstart", returnDots,false);
+reset.addEventListener("click", returnDots,false);
+reset.addEventListener("touchstart", returnDots,false);
 
 // Return dots to start zones; reset translate3d styling on dots to 
 // keep them from moving to random places on reset; add flags
